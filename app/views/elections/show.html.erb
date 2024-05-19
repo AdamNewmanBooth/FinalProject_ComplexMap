@@ -69,3 +69,48 @@
 </div>
 
 <hr>
+
+
+<h2>Filmography</h2>
+
+<table border="1">
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Image
+    </th>
+
+    <th>
+      Title
+    </th>
+
+    <th>
+      Year
+    </th>
+
+    <th>
+      Director
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% the_id = @the_election.id %>
+
+  <% matching_subcircuits = Subcircuit.where({ :election_id => the_id }) %>
+  
+  <% subcircuits = matching_subcircuits.order({ :year => :asc }) %>
+
+  <% subcircuits.each do |a_subcircuit| %>
+  <tr>
+    <td>
+      <%= a_subcircuit.id %>
+    </td>
+
+  </tr>
+  <% end %>
+</table>

@@ -74,18 +74,23 @@
         </td>
 
         <td>
-          <%= an_election_subcircuit.election_id %>
+        <% matching_vacancies = Vacancy.where({ :id => an_election_subcircuit.subcircuit_id }) %>
+      
+        <% the_subcircuit = matching_subcircuits.at(0) %>
+
+        <%= the_subcircuit.number %>
         </td>
 
         <td>
-          <%= an_election_subcircuit.subcircuit_id %>
-        </td>
+        <% matching_subcircuits = Subcircuit.where({ :id => an_election_subcircuit.subcircuit_id }) %>
+      
+        <% the_subcircuit = matching_subcircuits.at(0) %>
 
-        <td>
-          <%= time_ago_in_words(an_election_subcircuit.created_at) %> ago
+        <%= the_subcircuit.number %>
+        
         </td>
         <td>
-          <%= time_ago_in_words(an_election_subcircuit.updated_at) %> ago
+    
         </td>
 
         <td>
