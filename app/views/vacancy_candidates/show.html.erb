@@ -1,0 +1,191 @@
+<div>
+  <div>
+    <h1>
+      Vacancy candidate #<%= @the_vacancy_candidate.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/vacancy_candidates">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_vacancy_candidate/<%= @the_vacancy_candidate.id %>">
+          Delete vacancy candidate
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Candidate
+      </dt>
+      <dd>
+        <%= @the_vacancy_candidate.candidate_id %>
+      </dd>
+
+      <dt>
+        Vacancy
+      </dt>
+      <dd>
+        <%= @the_vacancy_candidate.vacancy_id %>
+      </dd>
+
+      <dt>
+        Party
+      </dt>
+      <dd>
+        <%= @the_vacancy_candidate.party_id %>
+      </dd>
+
+      <dt>
+        Suburban vote
+      </dt>
+      <dd>
+        <%= @the_vacancy_candidate.suburban_vote %>
+      </dd>
+
+      <dt>
+        Chicago vote
+      </dt>
+      <dd>
+        <%= @the_vacancy_candidate.chicago_vote %>
+      </dd>
+
+      <dt>
+        Total vote
+      </dt>
+      <dd>
+        <%= @the_vacancy_candidate.total_vote %>
+      </dd>
+
+      <dt>
+        Suburban percentage
+      </dt>
+      <dd>
+        <%= @the_vacancy_candidate.suburban_percentage %>
+      </dd>
+
+      <dt>
+        Chicago percentage
+      </dt>
+      <dd>
+        <%= @the_vacancy_candidate.chicago_percentage %>
+      </dd>
+
+      <dt>
+        Total percentage
+      </dt>
+      <dd>
+        <%= @the_vacancy_candidate.total_percentage %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_vacancy_candidate.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_vacancy_candidate.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit vacancy candidate
+    </h2>
+
+    <form action="/modify_vacancy_candidate/<%= @the_vacancy_candidate.id %>"  method="post" >
+      <div>
+        <label for="candidate_id_box">
+          Candidate
+        </label>
+
+        <input type="text" id="candidate_id_box" name="query_candidate_id" value="<%= @the_vacancy_candidate.candidate_id %>">
+      </div>
+
+      <div>
+        <label for="vacancy_id_box">
+          Vacancy
+        </label>
+
+        <input type="text" id="vacancy_id_box" name="query_vacancy_id" value="<%= @the_vacancy_candidate.vacancy_id %>">
+      </div>
+
+      <div>
+        <label for="party_id_box">
+          Party
+        </label>
+
+        <input type="text" id="party_id_box" name="query_party_id" value="<%= @the_vacancy_candidate.party_id %>">
+      </div>
+
+      <div>
+        <label for="suburban_vote_box">
+          Suburban vote
+        </label>
+
+        <input type="text" id="suburban_vote_box" name="query_suburban_vote" value="<%= @the_vacancy_candidate.suburban_vote %>">
+      </div>
+
+      <div>
+        <label for="chicago_vote_box">
+          Chicago vote
+        </label>
+
+        <input type="text" id="chicago_vote_box" name="query_chicago_vote" value="<%= @the_vacancy_candidate.chicago_vote %>">
+      </div>
+
+      <div>
+        <label for="total_vote_box">
+          Total vote
+        </label>
+
+        <input type="text" id="total_vote_box" name="query_total_vote" value="<%= @the_vacancy_candidate.total_vote %>">
+      </div>
+
+      <div>
+        <label for="suburban_percentage_box">
+          Suburban percentage
+        </label>
+
+        <input type="text" id="suburban_percentage_box" name="query_suburban_percentage" value="<%= @the_vacancy_candidate.suburban_percentage %>">
+      </div>
+
+      <div>
+        <label for="chicago_percentage_box">
+          Chicago percentage
+        </label>
+
+        <input type="text" id="chicago_percentage_box" name="query_chicago_percentage" value="<%= @the_vacancy_candidate.chicago_percentage %>">
+      </div>
+
+      <div>
+        <label for="total_percentage_box">
+          Total percentage
+        </label>
+
+        <input type="text" id="total_percentage_box" name="query_total_percentage" value="<%= @the_vacancy_candidate.total_percentage %>">
+      </div>
+
+      <button>
+        Update vacancy candidate
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,198 @@
+<div>
+  <div>
+    <h1>
+      List of all vacancies
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new vacancy
+    </h2>
+
+    <form action="/insert_vacancy" method="post">
+      <div>
+        <label for="election_subcircuit_id_box">
+          Election subcircuit
+        </label>
+
+        <input type="text" id="election_subcircuit_id_box" name="query_election_subcircuit_id">
+      </div>
+
+      <div>
+        <label for="vacating_candidate_id_box">
+          Vacating candidate
+        </label>
+
+        <input type="text" id="vacating_candidate_id_box" name="query_vacating_candidate_id">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="suburban_vote_box">
+          Suburban vote
+        </label>
+
+        <input type="text" id="suburban_vote_box" name="query_suburban_vote">
+      </div>
+
+      <div>
+        <label for="chicago_vote_box">
+          Chicago vote
+        </label>
+
+        <input type="text" id="chicago_vote_box" name="query_chicago_vote">
+      </div>
+
+      <div>
+        <label for="total_vote_box">
+          Total vote
+        </label>
+
+        <input type="text" id="total_vote_box" name="query_total_vote">
+      </div>
+
+      <div>
+        <label for="winning_candidate_id_box">
+          Winning candidate
+        </label>
+
+        <input type="text" id="winning_candidate_id_box" name="query_winning_candidate_id">
+      </div>
+
+      <div>
+        <label for="losing_candidate_id_box">
+          Losing candidate
+        </label>
+
+        <input type="text" id="losing_candidate_id_box" name="query_losing_candidate_id">
+      </div>
+
+      <button>
+        Create vacancy
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Election subcircuit
+        </th>
+
+        <th>
+          Vacating candidate
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Suburban vote
+        </th>
+
+        <th>
+          Chicago vote
+        </th>
+
+        <th>
+          Total vote
+        </th>
+
+        <th>
+          Winning candidate
+        </th>
+
+        <th>
+          Losing candidate
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_vacancies.each do |a_vacancy| %>
+      <tr>
+        <td>
+          <%= a_vacancy.id %>
+        </td>
+
+        <td>
+          <%= a_vacancy.election_subcircuit_id %>
+        </td>
+
+        <td>
+          <%= a_vacancy.vacating_candidate_id %>
+        </td>
+
+        <td>
+          <%= a_vacancy.name %>
+        </td>
+
+        <td>
+          <%= a_vacancy.suburban_vote %>
+        </td>
+
+        <td>
+          <%= a_vacancy.chicago_vote %>
+        </td>
+
+        <td>
+          <%= a_vacancy.total_vote %>
+        </td>
+
+        <td>
+          <%= a_vacancy.winning_candidate_id %>
+        </td>
+
+        <td>
+          <%= a_vacancy.losing_candidate_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_vacancy.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_vacancy.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/vacancies/<%= a_vacancy.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

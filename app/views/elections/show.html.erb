@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Election #<%= @the_election.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/elections">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_election/<%= @the_election.id %>">
+          Delete election
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Year
+      </dt>
+      <dd>
+        <%= @the_election.year %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_election.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_election.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit election
+    </h2>
+
+    <form action="/modify_election/<%= @the_election.id %>"  method="post" >
+      <div>
+        <label for="year_box">
+          Year
+        </label>
+
+        <input type="text" id="year_box" name="query_year" value="<%= @the_election.year %>">
+      </div>
+
+      <button>
+        Update election
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

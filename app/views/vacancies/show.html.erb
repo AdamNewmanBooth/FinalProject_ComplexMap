@@ -1,0 +1,176 @@
+<div>
+  <div>
+    <h1>
+      Vacancy #<%= @the_vacancy.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/vacancies">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_vacancy/<%= @the_vacancy.id %>">
+          Delete vacancy
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Election subcircuit
+      </dt>
+      <dd>
+        <%= @the_vacancy.election_subcircuit_id %>
+      </dd>
+
+      <dt>
+        Vacating candidate
+      </dt>
+      <dd>
+        <%= @the_vacancy.vacating_candidate_id %>
+      </dd>
+
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_vacancy.name %>
+      </dd>
+
+      <dt>
+        Suburban vote
+      </dt>
+      <dd>
+        <%= @the_vacancy.suburban_vote %>
+      </dd>
+
+      <dt>
+        Chicago vote
+      </dt>
+      <dd>
+        <%= @the_vacancy.chicago_vote %>
+      </dd>
+
+      <dt>
+        Total vote
+      </dt>
+      <dd>
+        <%= @the_vacancy.total_vote %>
+      </dd>
+
+      <dt>
+        Winning candidate
+      </dt>
+      <dd>
+        <%= @the_vacancy.winning_candidate_id %>
+      </dd>
+
+      <dt>
+        Losing candidate
+      </dt>
+      <dd>
+        <%= @the_vacancy.losing_candidate_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_vacancy.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_vacancy.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit vacancy
+    </h2>
+
+    <form action="/modify_vacancy/<%= @the_vacancy.id %>"  method="post" >
+      <div>
+        <label for="election_subcircuit_id_box">
+          Election subcircuit
+        </label>
+
+        <input type="text" id="election_subcircuit_id_box" name="query_election_subcircuit_id" value="<%= @the_vacancy.election_subcircuit_id %>">
+      </div>
+
+      <div>
+        <label for="vacating_candidate_id_box">
+          Vacating candidate
+        </label>
+
+        <input type="text" id="vacating_candidate_id_box" name="query_vacating_candidate_id" value="<%= @the_vacancy.vacating_candidate_id %>">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_vacancy.name %>">
+      </div>
+
+      <div>
+        <label for="suburban_vote_box">
+          Suburban vote
+        </label>
+
+        <input type="text" id="suburban_vote_box" name="query_suburban_vote" value="<%= @the_vacancy.suburban_vote %>">
+      </div>
+
+      <div>
+        <label for="chicago_vote_box">
+          Chicago vote
+        </label>
+
+        <input type="text" id="chicago_vote_box" name="query_chicago_vote" value="<%= @the_vacancy.chicago_vote %>">
+      </div>
+
+      <div>
+        <label for="total_vote_box">
+          Total vote
+        </label>
+
+        <input type="text" id="total_vote_box" name="query_total_vote" value="<%= @the_vacancy.total_vote %>">
+      </div>
+
+      <div>
+        <label for="winning_candidate_id_box">
+          Winning candidate
+        </label>
+
+        <input type="text" id="winning_candidate_id_box" name="query_winning_candidate_id" value="<%= @the_vacancy.winning_candidate_id %>">
+      </div>
+
+      <div>
+        <label for="losing_candidate_id_box">
+          Losing candidate
+        </label>
+
+        <input type="text" id="losing_candidate_id_box" name="query_losing_candidate_id" value="<%= @the_vacancy.losing_candidate_id %>">
+      </div>
+
+      <button>
+        Update vacancy
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List of all elections
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new election
+    </h2>
+
+    <form action="/insert_election" method="post">
+      <div>
+        <label for="year_box">
+          Year
+        </label>
+
+        <input type="text" id="year_box" name="query_year">
+      </div>
+
+      <button>
+        Create election
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Year
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_elections.each do |an_election| %>
+      <tr>
+        <td>
+          <%= an_election.id %>
+        </td>
+
+        <td>
+          <%= an_election.year %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_election.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_election.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/elections/<%= an_election.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

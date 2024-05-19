@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Subcircuit #<%= @the_subcircuit.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/subcircuits">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_subcircuit/<%= @the_subcircuit.id %>">
+          Delete subcircuit
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Number
+      </dt>
+      <dd>
+        <%= @the_subcircuit.number %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_subcircuit.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_subcircuit.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit subcircuit
+    </h2>
+
+    <form action="/modify_subcircuit/<%= @the_subcircuit.id %>"  method="post" >
+      <div>
+        <label for="number_box">
+          Number
+        </label>
+
+        <input type="text" id="number_box" name="query_number" value="<%= @the_subcircuit.number %>">
+      </div>
+
+      <button>
+        Update subcircuit
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

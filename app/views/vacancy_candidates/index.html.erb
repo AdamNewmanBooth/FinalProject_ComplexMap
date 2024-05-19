@@ -1,0 +1,214 @@
+<div>
+  <div>
+    <h1>
+      List of all vacancy candidates
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new vacancy candidate
+    </h2>
+
+    <form action="/insert_vacancy_candidate" method="post">
+      <div>
+        <label for="candidate_id_box">
+          Candidate
+        </label>
+
+        <input type="text" id="candidate_id_box" name="query_candidate_id">
+      </div>
+
+      <div>
+        <label for="vacancy_id_box">
+          Vacancy
+        </label>
+
+        <input type="text" id="vacancy_id_box" name="query_vacancy_id">
+      </div>
+
+      <div>
+        <label for="party_id_box">
+          Party
+        </label>
+
+        <input type="text" id="party_id_box" name="query_party_id">
+      </div>
+
+      <div>
+        <label for="suburban_vote_box">
+          Suburban vote
+        </label>
+
+        <input type="text" id="suburban_vote_box" name="query_suburban_vote">
+      </div>
+
+      <div>
+        <label for="chicago_vote_box">
+          Chicago vote
+        </label>
+
+        <input type="text" id="chicago_vote_box" name="query_chicago_vote">
+      </div>
+
+      <div>
+        <label for="total_vote_box">
+          Total vote
+        </label>
+
+        <input type="text" id="total_vote_box" name="query_total_vote">
+      </div>
+
+      <div>
+        <label for="suburban_percentage_box">
+          Suburban percentage
+        </label>
+
+        <input type="text" id="suburban_percentage_box" name="query_suburban_percentage">
+      </div>
+
+      <div>
+        <label for="chicago_percentage_box">
+          Chicago percentage
+        </label>
+
+        <input type="text" id="chicago_percentage_box" name="query_chicago_percentage">
+      </div>
+
+      <div>
+        <label for="total_percentage_box">
+          Total percentage
+        </label>
+
+        <input type="text" id="total_percentage_box" name="query_total_percentage">
+      </div>
+
+      <button>
+        Create vacancy candidate
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Candidate
+        </th>
+
+        <th>
+          Vacancy
+        </th>
+
+        <th>
+          Party
+        </th>
+
+        <th>
+          Suburban vote
+        </th>
+
+        <th>
+          Chicago vote
+        </th>
+
+        <th>
+          Total vote
+        </th>
+
+        <th>
+          Suburban percentage
+        </th>
+
+        <th>
+          Chicago percentage
+        </th>
+
+        <th>
+          Total percentage
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_vacancy_candidates.each do |a_vacancy_candidate| %>
+      <tr>
+        <td>
+          <%= a_vacancy_candidate.id %>
+        </td>
+
+        <td>
+          <%= a_vacancy_candidate.candidate_id %>
+        </td>
+
+        <td>
+          <%= a_vacancy_candidate.vacancy_id %>
+        </td>
+
+        <td>
+          <%= a_vacancy_candidate.party_id %>
+        </td>
+
+        <td>
+          <%= a_vacancy_candidate.suburban_vote %>
+        </td>
+
+        <td>
+          <%= a_vacancy_candidate.chicago_vote %>
+        </td>
+
+        <td>
+          <%= a_vacancy_candidate.total_vote %>
+        </td>
+
+        <td>
+          <%= a_vacancy_candidate.suburban_percentage %>
+        </td>
+
+        <td>
+          <%= a_vacancy_candidate.chicago_percentage %>
+        </td>
+
+        <td>
+          <%= a_vacancy_candidate.total_percentage %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_vacancy_candidate.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_vacancy_candidate.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/vacancy_candidates/<%= a_vacancy_candidate.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

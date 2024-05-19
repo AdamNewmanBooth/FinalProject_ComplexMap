@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Election subcircuit #<%= @the_election_subcircuit.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/election_subcircuits">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_election_subcircuit/<%= @the_election_subcircuit.id %>">
+          Delete election subcircuit
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Election
+      </dt>
+      <dd>
+        <%= @the_election_subcircuit.election_id %>
+      </dd>
+
+      <dt>
+        Subcircuit
+      </dt>
+      <dd>
+        <%= @the_election_subcircuit.subcircuit_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_election_subcircuit.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_election_subcircuit.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit election subcircuit
+    </h2>
+
+    <form action="/modify_election_subcircuit/<%= @the_election_subcircuit.id %>"  method="post" >
+      <div>
+        <label for="election_id_box">
+          Election
+        </label>
+
+        <input type="text" id="election_id_box" name="query_election_id" value="<%= @the_election_subcircuit.election_id %>">
+      </div>
+
+      <div>
+        <label for="subcircuit_id_box">
+          Subcircuit
+        </label>
+
+        <input type="text" id="subcircuit_id_box" name="query_subcircuit_id" value="<%= @the_election_subcircuit.subcircuit_id %>">
+      </div>
+
+      <button>
+        Update election subcircuit
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
