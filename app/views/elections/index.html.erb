@@ -8,28 +8,6 @@
 
 <hr>
 
-<div>
-  <div>
-    <h2>
-      Add a new election
-    </h2>
-
-    <form action="/insert_election" method="post">
-      <div>
-        <label for="year_box">
-          Year
-        </label>
-
-        <input type="text" id="year_box" name="query_year">
-      </div>
-
-      <button>
-        Create election
-      </button>
-    </form>
-  </div>
-</div>
-
 <hr>
 <div>
   <div>
@@ -55,13 +33,7 @@
           <%= an_election.year %>
         </td>
 
-        <td>
-          <%= time_ago_in_words(an_election.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(an_election.updated_at) %> ago
-        </td>
-
+      
         <td>
           <a href="/elections/<%= an_election.id %>">
             Show details

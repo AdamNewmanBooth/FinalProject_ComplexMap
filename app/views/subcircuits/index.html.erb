@@ -1,34 +1,12 @@
 <div>
   <div>
     <h1>
-      List of all subcircuits
+      Subcircuit List
     </h1>
   </div>
 </div>
 
 <hr>
-
-<div>
-  <div>
-    <h2>
-      Add a new subcircuit
-    </h2>
-
-    <form action="/insert_subcircuit" method="post">
-      <div>
-        <label for="number_box">
-          Number
-        </label>
-
-        <input type="text" id="number_box" name="query_number">
-      </div>
-
-      <button>
-        Create subcircuit
-      </button>
-    </form>
-  </div>
-</div>
 
 <hr>
 <div>
@@ -36,19 +14,7 @@
     <table border="1">
       <tr>
         <th>
-          ID
-        </th>
-
-        <th>
-          Number
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
+          Subcircuit Number
         </th>
 
         <th>
@@ -57,19 +23,9 @@
 
       <% @list_of_subcircuits.each do |a_subcircuit| %>
       <tr>
-        <td>
-          <%= a_subcircuit.id %>
-        </td>
 
         <td>
-          <%= a_subcircuit.number %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_subcircuit.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_subcircuit.updated_at) %> ago
+          Subcircuit <%= a_subcircuit.number %>
         </td>
 
         <td>

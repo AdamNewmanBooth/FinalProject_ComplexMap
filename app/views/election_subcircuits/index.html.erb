@@ -14,38 +14,11 @@
       Add a new election subcircuit
     </h2>
 
-    <form action="/insert_election_subcircuit" method="post">
-      <div>
-        <label for="election_id_box">
-          Election
-        </label>
-
-        <input type="text" id="election_id_box" name="query_election_id">
-      </div>
-
-      <div>
-        <label for="subcircuit_id_box">
-          Subcircuit
-        </label>
-
-        <input type="text" id="subcircuit_id_box" name="query_subcircuit_id">
-      </div>
-
-      <button>
-        Create election subcircuit
-      </button>
-    </form>
-  </div>
-</div>
-
 <hr>
 <div>
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Election
@@ -56,11 +29,11 @@
         </th>
 
         <th>
-          Created at
+        
         </th>
 
         <th>
-          Updated at
+        
         </th>
 
         <th>
@@ -74,11 +47,7 @@
         </td>
 
         <td>
-        <% matching_vacancies = Vacancy.where({ :id => an_election_subcircuit.subcircuit_id }) %>
-      
-        <% the_subcircuit = matching_subcircuits.at(0) %>
 
-        <%= the_subcircuit.number %>
         </td>
 
         <td>

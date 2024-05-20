@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   post("/insert_vacancy", { :controller => "vacancies", :action => "create" })
           
   # READ
+  get("/", { :controller => "vacancies", :action => "index" })
+
   get("/vacancies", { :controller => "vacancies", :action => "index" })
   
   get("/vacancies/:path_id", { :controller => "vacancies", :action => "show" })
@@ -133,8 +135,5 @@ Rails.application.routes.draw do
 
   #------------------------------
 
-  # This is a blank app! Pick your first screen, build out the RCAV, and go from there. E.g.:
-
-  # get "/your_first_screen" => "pages#first"
   
 end
