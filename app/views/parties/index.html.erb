@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all parties
+      List of Parties
     </h1>
   </div>
 </div>
@@ -10,46 +10,21 @@
 
 <div>
   <div>
-    <h2>
-      Add a new party
-    </h2>
-
-    <form action="/insert_party" method="post">
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name">
-      </div>
-
-      <button>
-        Create party
-      </button>
-    </form>
-  </div>
-</div>
-
-<hr>
-<div>
-  <div>
     <table border="1">
       <tr>
         <th>
-          ID
+        Party Name
         </th>
-
         <th>
-          Name
+          Number of candidates
         </th>
-
         <th>
-          Created at
+          Number of winners
         </th>
-
-        <th>
-          Updated at
+         <th>
+          Winning percentage
         </th>
+        
 
         <th>
         </th>
@@ -58,18 +33,15 @@
       <% @list_of_parties.each do |a_party| %>
       <tr>
         <td>
-          <%= a_party.id %>
-        </td>
-
-        <td>
           <%= a_party.name %>
         </td>
 
         <td>
-          <%= time_ago_in_words(a_party.created_at) %> ago
+          <%= a_party.vacancy_candidate.params %>
         </td>
+
         <td>
-          <%= time_ago_in_words(a_party.updated_at) %> ago
+          <%= a_party.name %>
         </td>
 
         <td>

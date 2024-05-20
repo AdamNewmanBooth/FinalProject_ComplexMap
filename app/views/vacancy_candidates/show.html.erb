@@ -11,86 +11,81 @@
         </a>
       </div>
 
-  
-    <dl>
-      <dt>
-        Candidate
-      </dt>
-      <dd>
-        <%= @the_vacancy_candidate.candidate_id %>
-      </dd>
+      <dl>
+        <dt>Candidate</dt>
+        <dd><%= @the_vacancy_candidate.candidate_id %></dd>
 
-      <dt>
-        Vacancy
-      </dt>
-      <dd>
-        <%= @the_vacancy_candidate.vacancy_id %>
-      </dd>
+        <dt>Vacancy</dt>
+        <dd><%= @the_vacancy_candidate.vacancy_id %></dd>
 
-      <dt>
-        Party
-      </dt>
-      <dd>
-        <%= @the_vacancy_candidate.party_id %>
-      </dd>
+        <dt>Party</dt>
+        <dd><%= @the_vacancy_candidate.party_id %></dd>
 
-      <dt>
-        Suburban vote
-      </dt>
-      <dd>
-        <%= @the_vacancy_candidate.suburban_vote %>
-      </dd>
+        <dt>Suburban vote</dt>
+        <dd><%= @the_vacancy_candidate.suburban_vote %></dd>
 
-      <dt>
-        Chicago vote
-      </dt>
-      <dd>
-        <%= @the_vacancy_candidate.chicago_vote %>
-      </dd>
+        <dt>Chicago vote</dt>
+        <dd><%= @the_vacancy_candidate.chicago_vote %></dd>
 
-      <dt>
-        Total vote
-      </dt>
-      <dd>
-        <%= @the_vacancy_candidate.total_vote %>
-      </dd>
+        <dt>Total vote</dt>
+        <dd><%= @the_vacancy_candidate.total_vote %></dd>
 
-      <dt>
-        Suburban percentage
-      </dt>
-      <dd>
-        <%= @the_vacancy_candidate.suburban_percentage %>
-      </dd>
+        <dt>Suburban percentage</dt>
+        <dd><%= @the_vacancy_candidate.suburban_percentage %></dd>
 
-      <dt>
-        Chicago percentage
-      </dt>
-      <dd>
-        <%= @the_vacancy_candidate.chicago_percentage %>
-      </dd>
+        <dt>Chicago percentage</dt>
+        <dd><%= @the_vacancy_candidate.chicago_percentage %></dd>
 
-      <dt>
-        Total percentage
-      </dt>
-      <dd>
-        <%= @the_vacancy_candidate.total_percentage %>
-      </dd>
+        <dt>Total percentage</dt>
+        <dd><%= @the_vacancy_candidate.total_percentage %></dd>
 
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_vacancy_candidate.created_at) %> ago
-      </dd>
+        <dt>Created at</dt>
+        <dd><%= time_ago_in_words(@the_vacancy_candidate.created_at) %> ago</dd>
 
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_vacancy_candidate.updated_at) %> ago
-      </dd>
-    </dl>
+        <dt>Updated at</dt>
+        <dd><%= time_ago_in_words(@the_vacancy_candidate.updated_at) %> ago</dd>
+      </dl>
+    </div>
   </div>
-</div>
 
-<hr>
+  <hr>
+  <hr>
+  <div>
+    <div>
+      <table border="1">
+        <tr>
+          <th>Candidate Name</th>
+          <th>Party</th>
+          <th>Year Ran</th>
+          <th>Subcircuit</th>
+          <th>Won?</th>
+          <th>Details</th>
+        </tr>
+
+        <% @list_of_vacancy_candidates.each do |a_vacancy_candidate| %>
+        <tr>
+          <td>
+            <% the_candidate = Candidate.find(a_vacancy_candidate.candidate_id) %>
+            <%= the_candidate.first_name %> <%= the_candidate.last_name %>
+          </td>
+          <td>
+            <% the_party = Party.find(a_vacancy_candidate.party_id) %>
+            <%= the_party.name %>
+          </td>
+          <td>
+            <%= a_vacancy_candidate.vacancy.election.year %>
+          </td>
+          <td>
+            <%= a_vacancy_candidate.vacancy.subcircuit.number %>
+          </td>
+          <td>
+            <%= a_vacancy_candidate.total_percentage > 50 ? "Yes" : "No" %>
+          </td>
+          <td>
+            <a href="/vacancy_candidates/<%= a_vacancy_candidate.id %>">Show details</a>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>

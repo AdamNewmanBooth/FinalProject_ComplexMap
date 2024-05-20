@@ -20,6 +20,7 @@ class VacancyCandidate < ApplicationRecord
   belongs_to :party, required: true, class_name: "Party", foreign_key: "party_id"
   belongs_to :vacancy, required: true, class_name: "Vacancy", foreign_key: "vacancy_id"
   has_one(:subcircuit, through: :vacancy, source: :subcircuit)
+  has_one  :election, through: :vacancy, source: :election
   validates :vacancy_id, presence: true
   validates :party_id, presence: true
   validates :candidate_id, presence: true

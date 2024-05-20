@@ -35,20 +35,13 @@
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Year
         </th>
 
         <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
+          Number of judicial elections
         </th>
 
         <th>
@@ -57,9 +50,6 @@
 
       <% @list_of_elections.each do |an_election| %>
       <tr>
-        <td>
-          <%= an_election.id %>
-        </td>
 
         <td>
           <%= an_election.year %>
