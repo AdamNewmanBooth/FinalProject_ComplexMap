@@ -32,7 +32,9 @@
         <td>
           <%= an_election.year %>
         </td>
-
+        <td>
+          <%= an_election.election_subcircuits.count %>
+        </td>
       
         <td>
           <a href="/elections/<%= an_election.id %>">
