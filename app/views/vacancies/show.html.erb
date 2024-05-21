@@ -12,84 +12,64 @@
       </div>
 
     <dl>
-    <dt>
-      Year
-      </dt>
+      <dt><b>Election Year</b></dt>
       <dd>
         <%= @the_vacancy.election_subcircuit.election.year %>
-      </dd>
-      <dt>
-        Subcircuit
-      </dt>
+      </dd><br>
+      <dt><b>Subcircuit</b></dt>
       <dd>
         <%= @the_vacancy.election_subcircuit.subcircuit.number %>
-      </dd>
-      <dt>
-      Winning candidate name
-      </dt>
+      </dd><br>
+      <dt><b>Winning candidate name</b></dt>
       <dd>
-        <%=@the_vacancy.winning_candidate.first_name%> <%=@the_vacancy.winning_candidate.last_name%>
-      </dd>
-      <dt>
-      Winning candidate party
-      </dt>
+        <%= @the_vacancy.winning_candidate.first_name %> <%= @the_vacancy.winning_candidate.last_name %>
+      </dd><br>
+      <dt><b>Winning candidate party</b></dt>
       <dd>
-      <%=@the_vacancy.winning_candidate.parties.at(0).name%>
-      </dd>
-      <dt>
-      Winning candidate votes won (Chicago)
-      </dt>
+        <%= @the_vacancy.winning_candidate.parties.at(0).name %>
+      </dd><br>
+      <dt><b>Winning candidate votes won (Chicago)</b></dt>
       <dd>
-      <% winning_candidate_id = @the_vacancy.winning_candidate.id %>
-      <%=@the_vacancy.vacancy_candidates.where({:candidate_id => winning_candidate_id}).at(0).chicago_vote%>
-      </dd>
-      <dt>
-      Winning candidate votes won (Suburbs)
-      </dt>
+        <% winning_candidate_id = @the_vacancy.winning_candidate.id %>
+        <%= number_with_delimiter(@the_vacancy.vacancy_candidates.where({:candidate_id => winning_candidate_id}).at(0).chicago_vote) %>
+      </dd><br>
+      <dt><b>Winning candidate votes won (Suburbs)</b></dt>
       <dd>
-      <%=@the_vacancy.vacancy_candidates.where({:candidate_id => winning_candidate_id}).at(0).suburban_vote%>
-      </dd><dt>
-      Winning candidate votes won (Total)
-      </dt>
+        <%= number_with_delimiter(@the_vacancy.vacancy_candidates.where({:candidate_id => winning_candidate_id}).at(0).suburban_vote) %>
+      </dd><br>
+      <dt><b>Winning candidate votes won (Total)</b></dt>
       <dd>
-      Insert
-      </dd>
-      <dt>
-      Winning candidate percentage
-      </dt>
+        <%= number_with_delimiter(@the_vacancy.vacancy_candidates.where({:candidate_id => winning_candidate_id}).at(0).total_vote) %>
+      </dd><br>
+      <dt><b>Winning candidate percentage</b></dt>
       <dd>
-      Insert
-      </dd>
-      Losing candidate name
-      </dt>
+        <%= number_to_percentage(@the_vacancy.vacancy_candidates.where({:candidate_id => winning_candidate_id}).at(0).total_percentage, precision: 2) %>
+      </dd><br>
+      <dt><b>Losing candidate name</b></dt>
       <dd>
-      Insert
-      </dd>
-      <dt>
-      Losing candidate party
-      </dt>
+        <%= @the_vacancy.losing_candidate.first_name %> <%= @the_vacancy.losing_candidate.last_name %>
+      </dd><br>
+      <dt><b>Losing candidate party</b></dt>
       <dd>
-      Insert
-          <dt>
-      Losing candidate votes won (Chicago)
-      </dt>
+        <%= @the_vacancy.losing_candidate.parties.at(0).name %>
+      </dd><br>
+      <dt><b>Losing candidate votes won (Chicago)</b></dt>
       <dd>
-      Insert
-      </dd>
-      <dt>
-      Losing candidate votes won (Suburbs)
-      </dt>
+        <% losing_candidate_id = @the_vacancy.losing_candidate.id %>
+        <%= number_with_delimiter(@the_vacancy.vacancy_candidates.where({:candidate_id => losing_candidate_id}).at(0).chicago_vote) %>
+      </dd><br>
+      <dt><b>Losing candidate votes won (Suburbs)</b></dt>
       <dd>
-      Insert
-      </dd><dt>
-      Losing candidate votes won (Total)
-      </dt>
+        <%= number_with_delimiter(@the_vacancy.vacancy_candidates.where({:candidate_id => losing_candidate_id}).at(0).suburban_vote) %>
+      </dd><br>
+      <dt><b>Losing candidate votes won (Total)</b></dt>
       <dd>
-      Insert
-      </dd>
-      
+        <%= number_with_delimiter(@the_vacancy.vacancy_candidates.where({:candidate_id => losing_candidate_id}).at(0).total_vote) %>
+      </dd><br>
+      <dt><b>Losing candidate percentage</b></dt>
+      <dd>
+        <%= number_to_percentage(@the_vacancy.vacancy_candidates.where({:candidate_id => losing_candidate_id}).at(0).total_percentage, precision: 2) %>
+      </dd><br>
     </dl>
   </div>
 </div>
-
-<hr>

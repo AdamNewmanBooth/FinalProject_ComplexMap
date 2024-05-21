@@ -1,71 +1,64 @@
 <div>
   <div>
     <h1>
-      Subcircuit #<%= @the_subcircuit.id %> Details
+      Subcircuit <%= @the_subcircuit.id %> Election Details
     </h1>
-
-    <div>
-      <div>
-        <a href="/subcircuits">
-          Go back
-        </a>
-      </div>
-
-    <h2>Filmography</h2>
 
 <table border="1">
   <tr>
     <th>
-      Year
+      Election Year
     </th>
 
     <th>
-      Vacating Judge    
+      Vacancy   
     </th>
 
     <th>
-      Winner
+      Winning Candidate
     </th>
 
     <th>
-      Loser
+      Party
+    </th>
+    
+    <th>
+      Chicago Votes
     </th>
 
+    <th>
+      Suburban Votes
+    </th>
+
+    <th>
+    Total Votes
+    </th>
+
+    <th>
+      Losing Candidate
+    </th>
+
+    <th>
+      Party
+    </th>
+    
+    <th>
+      Chicago Votes
+    </th>
+
+    <th>
+      Suburban Votes
+    </th>
+
+    <th>
+    Total Votes
+    </th>
   </tr>
 
-  <% the_id = @the_subcircuit.id %>
-
-  <% matching_subcircuits = Vacancy.where({ :subcircuit_id => the_id }) %>
+  <%=@the_subcircuit.id.election_subcircuit %>
   
-  <% subcircuit = matching_subcircuits %>
 
-  <% subcircuit.each do |a_vacancy| %>
-  <tr>
+ <tr>
     <td>
-      <%= a_movie.id %>
+      
     </td>
-
-    <td>
-      <img src="<%= a_movie.image %>" style="width:250px;">
-    </td>
-
-    <td>
-      <%= a_movie.title %>
-    </td>
-
-    <td>
-      <%= a_movie.year %>
-    </td>
-
-    <td>
-      <%= @the_director.name %>
-    </td>
-
-    <td>
-      <a href="/movies/<%= a_movie.id %>">
-        Show details
-      </a>
-    </td>
-  </tr>
-  <% end %>
-</table>

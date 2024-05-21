@@ -45,7 +45,11 @@
         </td>
 
         <td>
-          
+          <% total_candidates = a_party.vacancy_candidates.count %>
+          <% candidates_above_50 = a_party.vacancy_candidates.where("total_percentage > ?", 50).count %>
+          <% percentage_above_50 = total_candidates > 0 ? (candidates_above_50.to_f / total_candidates * 100).round(2) : 0 %>
+          <%= percentage_above_50 %>%
+
         </td>
         <td>
           <a href="/parties/<%= a_party.id %>">
