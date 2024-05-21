@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Subcircuit #<%= @the_subcircuit.id %> details
+      Subcircuit #<%= @the_subcircuit.id %> Details
     </h1>
 
     <div>
@@ -11,61 +11,61 @@
         </a>
       </div>
 
-      <div>
-        <a href="/delete_subcircuit/<%= @the_subcircuit.id %>">
-          Delete subcircuit
-        </a>
-      </div>
-    </div>
+    <h2>Filmography</h2>
 
-    <dl>
-      <dt>
-        Number
-      </dt>
-      <dd>
-        <%= @the_subcircuit.number %>
-      </dd>
+<table border="1">
+  <tr>
+    <th>
+      Year
+    </th>
 
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_subcircuit.created_at) %> ago
-      </dd>
+    <th>
+      Vacating Judge    
+    </th>
 
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_subcircuit.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
-</div>
+    <th>
+      Winner
+    </th>
 
-<hr>
+    <th>
+      Loser
+    </th>
 
+  </tr>
 
-<div>
-  <div>
-    <h2>
-      Edit subcircuit
-    </h2>
+  <% the_id = @the_subcircuit.id %>
 
-    <form action="/modify_subcircuit/<%= @the_subcircuit.id %>"  method="post" >
-      <div>
-        <label for="number_box">
-          Number
-        </label>
+  <% matching_subcircuits = Vacancy.where({ :subcircuit_id => the_id }) %>
+  
+  <% subcircuit = matching_subcircuits %>
 
-        <input type="text" id="number_box" name="query_number" value="<%= @the_subcircuit.number %>">
-      </div>
+  <% subcircuit.each do |a_vacancy| %>
+  <tr>
+    <td>
+      <%= a_movie.id %>
+    </td>
 
-      <button>
-        Update subcircuit
-      </button>
-    </form>
-  </div>
-</div>
+    <td>
+      <img src="<%= a_movie.image %>" style="width:250px;">
+    </td>
 
-<hr>
+    <td>
+      <%= a_movie.title %>
+    </td>
+
+    <td>
+      <%= a_movie.year %>
+    </td>
+
+    <td>
+      <%= @the_director.name %>
+    </td>
+
+    <td>
+      <a href="/movies/<%= a_movie.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

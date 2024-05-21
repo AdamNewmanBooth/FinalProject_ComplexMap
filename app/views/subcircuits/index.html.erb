@@ -18,6 +18,11 @@
         </th>
 
         <th>
+        Number of elections (2018 to 2022)
+        </th>
+
+        <th>
+
         </th>
       </tr>
 
@@ -25,9 +30,14 @@
       <tr>
 
         <td>
-          Subcircuit <%= a_subcircuit.number %>
+        Subcircuit <%= a_subcircuit.number %>
         </td>
-
+        <td>
+        <%= a_subcircuit.elections.count %>
+        </td>
+        
+        
+        
         <td>
           <a href="/subcircuits/<%= a_subcircuit.id %>">
             Show details

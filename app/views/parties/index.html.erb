@@ -37,13 +37,16 @@
         </td>
 
         <td>
-          <%= a_party.vacancy_candidate.params %>
+        <%= a_party.vacancy_candidates.count %>
         </td>
 
         <td>
-          <%= a_party.name %>
+          <%= a_party.vacancy_candidates %>
         </td>
 
+        <td>
+          
+        </td>
         <td>
           <a href="/parties/<%= a_party.id %>">
             Show details
