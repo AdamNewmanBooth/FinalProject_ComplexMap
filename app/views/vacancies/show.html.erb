@@ -28,25 +28,26 @@
       Winning candidate name
       </dt>
       <dd>
-         Insert
+        <%=@the_vacancy.winning_candidate.first_name%> <%=@the_vacancy.winning_candidate.last_name%>
       </dd>
       <dt>
       Winning candidate party
       </dt>
       <dd>
-      Insert
+      <%=@the_vacancy.winning_candidate.parties.at(0).name%>
       </dd>
       <dt>
       Winning candidate votes won (Chicago)
       </dt>
       <dd>
-      Insert
+      <% winning_candidate_id = @the_vacancy.winning_candidate.id %>
+      <%=@the_vacancy.vacancy_candidates.where({:candidate_id => winning_candidate_id}).at(0).chicago_vote%>
       </dd>
       <dt>
       Winning candidate votes won (Suburbs)
       </dt>
       <dd>
-      Insert
+      <%=@the_vacancy.vacancy_candidates.where({:candidate_id => winning_candidate_id}).at(0).suburban_vote%>
       </dd><dt>
       Winning candidate votes won (Total)
       </dt>

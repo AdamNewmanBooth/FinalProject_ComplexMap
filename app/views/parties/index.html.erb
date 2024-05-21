@@ -41,7 +41,7 @@
         </td>
 
         <td>
-          <%= a_party.vacancy_candidates %>
+          <%= a_party.vacancy_candidates.where("total_percentage > ?", 50).count %>
         </td>
 
         <td>
