@@ -51,15 +51,15 @@
         </td>
 
         <td>
-          <% matching_candidates = Candidate.where({ :id => a_vacancy.vacating_candidate_id}) %>
+          <% the_winning_candidate = Candidate.where({ :id => a_vacancy.winning_candidate_id}) %>
           
-          <% the_candidate = matching_candidates.at(0) %>
+          <% the_winner = the_winning_candidate.at(0) %>
 
-          <%=the_candidate.first_name%> <%=the_candidate.last_name%>
+          <%=the_winner.first_name%> <%=the_winner.last_name%>
         </td>
 
         <td>
-        <%=the_candidate.parties.at(0).name%>
+     
         </td>
 
         <td>

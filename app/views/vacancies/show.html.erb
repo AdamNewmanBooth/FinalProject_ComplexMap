@@ -11,165 +11,56 @@
         </a>
       </div>
 
-      <div>
-        <a href="/delete_vacancy/<%= @the_vacancy.id %>">
-          Delete vacancy
-        </a>
-      </div>
-    </div>
-
     <dl>
-      <dt>
-        Election subcircuit
+    <dt>
+      Year
       </dt>
       <dd>
-        <%= @the_vacancy.election_subcircuit_id %>
+        <%= @the_vacancy.election_subcircuit.election.year %>
       </dd>
-
       <dt>
-        Vacating candidate
+        Subcircuit
       </dt>
       <dd>
-        <%= @the_vacancy.vacating_candidate_id %>
+        <%= @the_vacancy.election_subcircuit.subcircuit.number %>
       </dd>
-
       <dt>
-        Name
+      Winning candidate name
       </dt>
       <dd>
-        <%= @the_vacancy.name %>
+         Insert
       </dd>
-
       <dt>
-        Suburban vote
+      Winning candidate party
       </dt>
       <dd>
-        <%= @the_vacancy.suburban_vote %>
+      Insert
       </dd>
-
       <dt>
-        Chicago vote
+      Winning candidate votes won
       </dt>
       <dd>
-        <%= @the_vacancy.chicago_vote %>
+      Insert
       </dd>
-
-      <dt>
-        Total vote
+      Losing candidate name
       </dt>
       <dd>
-        <%= @the_vacancy.total_vote %>
+      Insert
       </dd>
-
       <dt>
-        Winning candidate
+      Losing candidate party
       </dt>
       <dd>
-        <%= @the_vacancy.winning_candidate_id %>
+      Insert
       </dd>
-
       <dt>
-        Losing candidate
+      Losing candidate party
       </dt>
       <dd>
-        <%= @the_vacancy.losing_candidate_id %>
+      Insert
       </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_vacancy.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_vacancy.updated_at) %> ago
-      </dd>
+      
     </dl>
-  </div>
-</div>
-
-<hr>
-
-
-<div>
-  <div>
-    <h2>
-      Edit vacancy
-    </h2>
-
-    <form action="/modify_vacancy/<%= @the_vacancy.id %>"  method="post" >
-      <div>
-        <label for="election_subcircuit_id_box">
-          Election subcircuit
-        </label>
-
-        <input type="text" id="election_subcircuit_id_box" name="query_election_subcircuit_id" value="<%= @the_vacancy.election_subcircuit_id %>">
-      </div>
-
-      <div>
-        <label for="vacating_candidate_id_box">
-          Vacating candidate
-        </label>
-
-        <input type="text" id="vacating_candidate_id_box" name="query_vacating_candidate_id" value="<%= @the_vacancy.vacating_candidate_id %>">
-      </div>
-
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name" value="<%= @the_vacancy.name %>">
-      </div>
-
-      <div>
-        <label for="suburban_vote_box">
-          Suburban vote
-        </label>
-
-        <input type="text" id="suburban_vote_box" name="query_suburban_vote" value="<%= @the_vacancy.suburban_vote %>">
-      </div>
-
-      <div>
-        <label for="chicago_vote_box">
-          Chicago vote
-        </label>
-
-        <input type="text" id="chicago_vote_box" name="query_chicago_vote" value="<%= @the_vacancy.chicago_vote %>">
-      </div>
-
-      <div>
-        <label for="total_vote_box">
-          Total vote
-        </label>
-
-        <input type="text" id="total_vote_box" name="query_total_vote" value="<%= @the_vacancy.total_vote %>">
-      </div>
-
-      <div>
-        <label for="winning_candidate_id_box">
-          Winning candidate
-        </label>
-
-        <input type="text" id="winning_candidate_id_box" name="query_winning_candidate_id" value="<%= @the_vacancy.winning_candidate_id %>">
-      </div>
-
-      <div>
-        <label for="losing_candidate_id_box">
-          Losing candidate
-        </label>
-
-        <input type="text" id="losing_candidate_id_box" name="query_losing_candidate_id" value="<%= @the_vacancy.losing_candidate_id %>">
-      </div>
-
-      <button>
-        Update vacancy
-      </button>
-    </form>
   </div>
 </div>
 
