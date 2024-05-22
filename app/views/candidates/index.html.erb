@@ -47,15 +47,19 @@
         </td>
 
         <td>
-          ?
+          <%=a_candidate.parties.at(0).name%>
         </td>
          
         <td>
-          ?
+        <%=a_candidate.vacancy_candidates.at(0).vacancy.election_subcircuit.election.year%>
          </td>
-         
+       
         <td>
-         ?
+          <% if a_candidate.vacancy_candidates.at(0).total_percentage > 50 %>
+            Yes
+          <% else %>
+            No
+          <% end %>
         </td>
 
         <td>

@@ -99,18 +99,31 @@
     </th>
   </tr>
 
-  <% the_id = @the_election.id %>
+ <% the_id = @the_election.id %>
 
-  <% matching_subcircuits = Subcircuit.where({ :election_id => the_id }) %>
-  
-  <% subcircuits = matching_subcircuits.order({ :year => :asc }) %>
+<% matching_subcircuits = Subcircuit.where(election_id: the_id) %>
 
-  <% subcircuits.each do |a_subcircuit| %>
-  <tr>
-    <td>
-      <%= a_subcircuit.id %>
-    </td>
+<% subcircuits = matching_subcircuits.order(year: :asc) %>
 
-  </tr>
-  <% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Subcircuit ID</th>
+      <th>Year</th>
+      <!-- Add other headers as needed -->
+    </tr>
+  </thead>
+  <tbody>
+    <% subcircuits.each do |a_subcircuit| %>
+      <tr>
+        <td>
+          <%= a_subcircuit.id %>
+        </td>
+        <td>
+          <%= a_subcircuit.year %>
+        </td>
+        <!-- Add other columns as needed -->
+      </tr>
+    <% end %>
+  </tbody>
 </table>
