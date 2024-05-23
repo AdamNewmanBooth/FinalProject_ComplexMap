@@ -22,8 +22,6 @@
           Number of judicial elections
         </th>
 
-        <th>
-        </th>
       </tr>
 
       <% @list_of_elections.each do |an_election| %>
@@ -36,11 +34,6 @@
           <%= an_election.election_subcircuits.count %>
         </td>
       
-        <td>
-          <a href="/elections/<%= an_election.id %>">
-            Show details
-          </a>
-        </td>
       </tr>
       <% end %>
     </table>
