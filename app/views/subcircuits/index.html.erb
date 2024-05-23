@@ -20,10 +20,7 @@
         <th>
         Number of elections (2018 to 2022)
         </th>
-
-        <th>
-
-        </th>
+        
       </tr>
 
       <% @list_of_subcircuits.each do |a_subcircuit| %>
@@ -36,12 +33,7 @@
         <%= a_subcircuit.elections.count %>
         </td>
         
-        
-        
-        <td>
-          <a href="/subcircuits/<%= a_subcircuit.id %>">
-            Show details
-          </a>
+      
         </td>
       </tr>
       <% end %>
